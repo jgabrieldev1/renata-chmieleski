@@ -25,7 +25,7 @@ O `dist/` sobe em qualquer hospedagem estática, inclusive numa subpasta (`base:
 - `?tema=terracota`, `?tema=azul` e `?tema=grafite` trocam a cor de acento.
 
 ## Publicidade (Código de Ética do Psicólogo / CFP)
-Nome, "psicóloga" e CRP à vista; nenhum paciente aparece; sem depoimentos; sem preço, desconto ou forma de pagamento; sem promessa de resultado.
+Nome, "psicóloga" e CRP à vista; nenhum paciente aparece; avaliações do Google só sem nome, foto ou estrelas e sem falar de resultado (confirmar com o CRP 18); sem preço, desconto ou forma de pagamento; sem promessa de resultado.
 
 ## Pendências
 - Fotos deitadas (16:9) para o topo, sobretudo Crianças, Adolescentes e Casais e famílias (hoje são montagens das fotos em pé).
