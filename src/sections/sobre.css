@@ -1,0 +1,30 @@
+.sobre__grade { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(32px, 5vw, 80px); }
+.sobre__lado { display: flex; flex-direction: column; justify-content: space-between; gap: 40px; }
+.sobre__retratos { display: flex; gap: 12px; }
+.sobre__retrato { width: min(150px, 48%); aspect-ratio: 3 / 4; border-radius: var(--raio-p); overflow: hidden; background: var(--gelo); }
+.sobre__retrato img, .sobre__mesa img { width: 100%; height: 100%; object-fit: cover; }
+.sobre__retrato:nth-child(2) { margin-top: 36px; }
+.sobre__fala { position: relative; }
+.sobre__fala .frase-grande { max-width: 22ch; font-size: clamp(28px, 3.2vw, 46px); }
+.assinatura { width: min(380px, 80%); height: auto; margin-top: 18px; color: var(--acento); overflow: visible; }
+.assinatura text { font-family: var(--assinatura); font-size: 82px; fill: currentColor; }
+.assinatura__corte { transform: scaleX(0); transform-origin: 0 0; transform-box: fill-box; }
+.assinatura.escreve .assinatura__corte { transform: scaleX(1); transition: transform 1.8s cubic-bezier(.45, .05, .35, 1); }
+.assinatura.pronta .assinatura__corte { transform: scaleX(1); }
+
+.sobre__baixo { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: clamp(32px, 5vw, 80px); align-items: end; margin-top: clamp(56px, 7vw, 110px); }
+.numeros { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--linha); }
+.numero { display: flex; flex-direction: column-reverse; gap: 8px; padding: 26px 20px 0 0; }
+.numero dd { font-size: clamp(48px, 5.4vw, 80px); font-weight: 500; letter-spacing: -.05em; line-height: 1; }
+.numero dt { font-size: 15px; color: var(--tinta-2); max-width: 22ch; }
+.sobre__mesa { aspect-ratio: 9 / 7; border-radius: var(--raio-p); overflow: hidden; background: var(--gelo); }
+
+@media (max-width: 860px) {
+  .sobre__grade, .sobre__baixo { grid-template-columns: 1fr; }
+  .sobre__lado { gap: 28px; }
+  .sobre__retratos { order: 2; }
+  .numeros { grid-template-columns: 1fr; }
+  .numero { flex-direction: row-reverse; justify-content: flex-end; align-items: baseline; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--linha); }
+  .numero dd { font-size: 52px; min-width: 1.2ch; }
+}
+@media (prefers-reduced-motion: reduce) { .assinatura__corte { transform: none; } }

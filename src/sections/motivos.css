@@ -1,0 +1,42 @@
+.motivos__topo { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: clamp(32px, 4vw, 56px); }
+.motivos__topo .titulo { max-width: 13ch; }
+.trilho { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; overscroll-behavior-x: contain; cursor: grab; border-radius: var(--raio-p); }
+.trilho::-webkit-scrollbar { display: none; }
+.trilho.arrastando { cursor: grabbing; user-select: none; }
+.trilho.arrastando * { pointer-events: none; }
+.trilho__fila { display: flex; align-items: flex-end; gap: 14px; width: max-content; }
+.cartao { --w: clamp(260px, 26vw, 340px); position: relative; flex: none; width: var(--w); height: 440px; border-radius: var(--raio-p); overflow: hidden; background: var(--papel); }
+.cartao img { -webkit-user-drag: none; user-select: none; }
+.cartao--foto { height: 420px; }
+.cartao--foto img, .cartao--alto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cartao--foto::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(var(--hero-veu), .7), rgba(var(--hero-veu), 0) 50%); }
+.cartao--foto h3 { position: absolute; z-index: 1; left: 22px; right: 22px; bottom: 22px; color: #fff; font-size: 24px; font-weight: 500; letter-spacing: -.025em; line-height: 1.12; }
+.cartao--cor { background: var(--acento); color: #fff; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; }
+.cartao__quem { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 500; letter-spacing: -.02em; line-height: 1.15; }
+.cartao__quem img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; flex: none; }
+.cartao__frase { font-size: 22px; font-weight: 500; letter-spacing: -.02em; line-height: 1.2; --apagado: rgba(255,255,255,.3); }
+.cartao--cor .vl { --acento-v: #fff; background: linear-gradient(90deg, #fff calc(var(--p) - 10%), var(--acento-claro) calc(var(--p) - 3%), rgba(255,255,255,.3) var(--p)); -webkit-background-clip: text; background-clip: text; }
+.cartao--alto { --w: clamp(300px, 30vw, 400px); height: 540px; }
+.cartao--numero { padding: 22px; display: flex; flex-direction: column; }
+.cartao__num { font-size: 96px; font-weight: 500; letter-spacing: -.06em; line-height: .9; }
+.cartao__rotulo { margin-top: 10px; color: var(--tinta-2); font-size: 15px; max-width: 24ch; }
+.colunas { margin-top: auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; height: 200px; align-items: end; }
+.colunas span { position: relative; height: var(--h); border-radius: 16px; background: var(--acento-suave); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 12px; transform: scaleY(0); transform-origin: bottom; }
+.colunas span:last-child { background: var(--acento); color: #fff; }
+.colunas b { font-size: 12px; font-weight: 500; }
+.focado .colunas span { transform: none; transition: transform .9s var(--macio); }
+.colunas span:nth-child(2) { transition-delay: .12s !important; }
+.colunas span:nth-child(3) { transition-delay: .24s !important; }
+
+@media (max-width: 760px) {
+  .setas { display: none; }
+  .motivos__topo .setas { display: none; }
+  .trilho { margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); border-radius: 0; cursor: auto; scroll-padding-inline: var(--gutter); }
+  .trilho__fila { padding-right: var(--gutter); }
+  .cartao { --w: 76vw; height: 400px; }
+  .cartao--foto { height: 380px; }
+  .cartao--alto { --w: 80vw; height: 460px; }
+}
+@media (prefers-reduced-motion: reduce) { .colunas span { transform: none; } }
+/* Na fila, a entrada é só foco e opacidade: o deslocamento de 26 px faria a fila ter altura de sobra. */
+.js .trilho [data-foco] { transform: none; }

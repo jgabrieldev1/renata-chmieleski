@@ -1,0 +1,26 @@
+<section class="contato" id="contato" aria-labelledby="contato-titulo">
+  <div class="painel painel--fim">
+    <div class="envolve contato__topo">
+      <h2 id="contato-titulo" class="contato__titulo">
+        <span data-foco>Se fez sentido para você,</span>
+        <span data-foco style="--i:1">vamos conversar.</span>
+      </h2>
+      <div class="contato__lado">
+        <p class="texto" data-foco style="--i:2">Deixe seu WhatsApp e eu abro a conversa já com a mensagem pronta. É só enviar, e eu respondo para combinarmos o formato e o melhor horário.</p>
+        <form class="campo" data-contato novalidate data-foco style="--i:3">
+          <div class="campo__pilula">
+            <label class="visualmente-oculto" for="zap">Seu WhatsApp com DDD</label>
+            <input id="zap" name="zap" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="(00) 00000-0000" maxlength="15" aria-describedby="zap-aviso">
+            <button class="botao botao--acento" type="submit">
+              <span class="botao__texto">Quero agendar</span>
+              <span class="botao__seta" aria-hidden="true"><svg><use href="#i-seta"/></svg><svg><use href="#i-seta"/></svg></span>
+            </button>
+          </div>
+          <p class="campo__aviso" id="zap-aviso" aria-live="polite"></p>
+        </form>
+        <div class="campo__ok" data-contato-ok hidden tabindex="-1">
+          <p>Anotado. Abri o WhatsApp com a mensagem e o número <strong data-contato-num></strong>. Se a janela não abriu, <a data-contato-link href="https://wa.me/5565999098667" target="_blank" rel="noopener">toque aqui</a>.</p>
+          <button class="link-sub" type="button" data-contato-corrigir>Corrigir o número</button>
+        </div>
+      </div>
+    </div>

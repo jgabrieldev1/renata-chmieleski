@@ -1,0 +1,20 @@
+.barra {
+  position: fixed; z-index: 50; top: 14px; left: 50%;
+  display: flex; align-items: center; gap: 28px; padding: 6px 6px 6px 20px;
+  background: rgba(255,255,255,.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--linha); border-radius: 999px; box-shadow: 0 10px 30px -12px rgba(20,23,18,.25);
+  transform: translate(-50%, -140%); opacity: 0; visibility: hidden;
+  transition: transform .6s var(--macio), opacity .4s var(--macio), visibility 0s .6s;
+}
+.barra.is-visivel { transform: translate(-50%, 0); opacity: 1; visibility: visible; transition: transform .6s var(--macio), opacity .4s var(--macio), visibility 0s; }
+.barra .marca { font-size: 15px; }
+.barra .marca__simbolo { width: 18px; height: 22px; }
+.barra__links { display: flex; gap: 4px; }
+.barra__links a { display: block; padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 500; color: var(--tinta-2); transition: background .3s, color .3s; }
+.barra__links a.is-atual { background: var(--acento-suave); color: var(--acento-forte); }
+@media (hover: hover) { .barra__links a:hover { color: var(--tinta); background: var(--gelo); } }
+@media (max-width: 900px) {
+  .barra { left: 12px; right: 12px; transform: translateY(-140%); justify-content: space-between; }
+  .barra.is-visivel { transform: none; }
+  .barra__links { display: none; }
+}

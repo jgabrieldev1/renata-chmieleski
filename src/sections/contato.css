@@ -1,0 +1,49 @@
+.contato { padding-bottom: var(--borda); }
+.painel--fim { padding-bottom: 28px; }
+.contato__topo { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(32px, 5vw, 80px); align-items: end; }
+.contato__titulo { font-size: clamp(40px, 5.6vw, 84px); font-weight: 500; letter-spacing: -.045em; line-height: 1; }
+.contato__titulo span { display: block; }
+.contato__titulo span:last-child { color: var(--acento); }
+.contato__lado .texto { margin-bottom: 22px; }
+.campo__pilula { display: flex; align-items: center; gap: 8px; padding: 6px 6px 6px 22px; background: var(--papel); border-radius: 999px; border: 1px solid var(--linha); transition: border-color .3s, box-shadow .3s; }
+.campo__pilula:focus-within { border-color: var(--acento); box-shadow: 0 0 0 4px var(--acento-suave); }
+.campo input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font-size: 17px; color: var(--tinta); font-variant-numeric: tabular-nums; }
+.campo input::placeholder { color: rgba(20,23,18,.4); }
+.campo__aviso { min-height: 1.5em; margin-top: 10px; padding-left: 22px; font-size: 14px; color: var(--perigo); }
+.campo.treme .campo__pilula { animation: treme .45s var(--vai-volta); border-color: var(--perigo); }
+@keyframes treme { 20% { transform: translateX(-8px); } 40% { transform: translateX(7px); } 60% { transform: translateX(-5px); } 80% { transform: translateX(3px); } }
+.campo__ok { padding: 22px 24px; background: var(--papel); border-radius: var(--raio-p); border: 1px solid var(--linha); animation: ok-entra .7s var(--macio); }
+.campo__ok p { margin-bottom: 10px; }
+.campo__ok a { color: var(--acento); text-decoration: underline; }
+.campo__ok .link-sub { color: var(--acento); font-weight: 500; }
+@keyframes ok-entra { from { opacity: 0; filter: blur(10px); transform: translateY(14px); } }
+
+.rodape { margin-top: clamp(72px, 9vw, 140px); }
+.rodape__grade { display: grid; grid-template-columns: repeat(3, minmax(0, 2fr)) minmax(0, 4fr); gap: 32px; padding-top: 40px; border-top: 1px solid var(--linha); }
+.rodape__col p { font-size: 14px; color: var(--tinta-2); margin-bottom: 14px; }
+.rodape__col li { margin-bottom: 8px; font-size: 16px; }
+.rodape__contato { display: flex; flex-direction: column; align-items: flex-end; gap: 20px; }
+.rodape__email { font-size: clamp(18px, 1.9vw, 26px); font-weight: 500; letter-spacing: -.02em; overflow-wrap: anywhere; text-align: right; }
+@media (hover: hover) { .rodape__email:hover { color: var(--acento); } }
+.redes { display: flex; gap: 10px; }
+.redes a { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: var(--papel); transition: transform .4s var(--macio), background .3s, color .3s; }
+.redes svg { width: 22px; height: 22px; }
+@media (hover: hover) { .redes a:hover { transform: translateY(-4px); background: var(--acento); color: #fff; } }
+.sobrenome { margin-top: clamp(40px, 5vw, 72px); font-size: 17.5vw; font-weight: 600; letter-spacing: -.065em; line-height: .78; color: var(--gelo-2); white-space: nowrap; user-select: none; text-align: center; }
+@media (min-width: 1460px) { .sobrenome { font-size: 252px; } }
+.sobrenome__real { transition: color .6s var(--macio); }
+@media (hover: hover) { .sobrenome:hover .sobrenome__real { color: var(--acento-claro); } }
+.rodape__pe { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 28px; font-size: 13px; color: var(--tinta-2); }
+
+@media (max-width: 900px) {
+  .contato__topo { grid-template-columns: 1fr; }
+  .rodape__grade { grid-template-columns: 1fr 1fr; }
+  .rodape__contato { grid-column: 1 / -1; align-items: flex-start; }
+  .rodape__email { text-align: left; }
+}
+@media (max-width: 520px) {
+  .campo__pilula { flex-direction: column; align-items: stretch; border-radius: 26px; padding: 6px; }
+  .campo input { height: 50px; padding: 0 16px; }
+  .campo .botao { justify-content: space-between; }
+  .rodape__grade { grid-template-columns: 1fr; }
+}

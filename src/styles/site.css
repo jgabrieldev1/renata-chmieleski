@@ -1,0 +1,13 @@
+@import '@fontsource-variable/schibsted-grotesk/wght.css';
+@import '@fontsource/mrs-saint-delafield/latin-400.css';
+@import './tokens.css';
+@import './base.css';
+@import '../sections/botao.css';
+@import '../sections/barra.css';
+@import '../sections/hero.css';
+@import '../sections/sobre.css';
+@import '../sections/consulta.css';
+@import '../sections/motivos.css';
+@import '../sections/abordagens.css';
+@import '../sections/conteudo.css';
+@import '../sections/contato.css';

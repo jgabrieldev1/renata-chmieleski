@@ -1,0 +1,45 @@
+.conteudo__topo { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(24px, 5vw, 80px); align-items: start; margin-bottom: clamp(36px, 4.5vw, 64px); }
+.conteudo__topo .titulo { max-width: 18ch; }
+.conteudo__lista { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.texto-card { width: 100%; height: 100%; text-align: left; display: flex; flex-direction: column; gap: 14px; padding: 10px 10px 22px; background: var(--gelo); border-radius: var(--raio); transition: background .4s var(--macio), transform .2s var(--macio); }
+.texto-card:focus-visible { border-radius: var(--raio); }
+.texto-card:active { transform: scale(.985); }
+.texto-card__foto { position: relative; display: block; aspect-ratio: 10 / 7; border-radius: var(--raio-p); overflow: hidden; }
+.texto-card__foto img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--macio); }
+.texto-card__tema { position: absolute; top: 12px; left: 12px; height: 30px; padding: 0 12px; display: inline-flex; align-items: center; border-radius: 999px; background: #fff; font-size: 13px; font-weight: 500; }
+.texto-card__meta { display: flex; align-items: center; gap: 10px; padding: 4px 12px 0; font-size: 13px; color: var(--tinta-2); flex-wrap: wrap; }
+.texto-card__meta img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
+.texto-card__meta span:last-child::before { content: '·'; margin-right: 10px; }
+.texto-card__titulo { padding: 0 12px; font-size: 22px; font-weight: 500; letter-spacing: -.025em; line-height: 1.15; text-wrap: balance; }
+.texto-card__ler { margin-top: auto; padding: 0 12px; display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; color: var(--acento); }
+.texto-card__ler svg { width: 18px; height: 18px; transition: transform .45s var(--macio); }
+@media (hover: hover) {
+  .texto-card:hover { background: var(--gelo-2); }
+  .texto-card:hover .texto-card__foto img { transform: scale(1.05); }
+  .texto-card:hover .texto-card__ler svg { transform: translateX(5px); }
+}
+.conteudo__acao { margin-top: clamp(36px, 4vw, 56px); display: flex; justify-content: center; }
+
+/* Folha de leitura */
+.folha { padding: 0; border: 0; background: transparent; max-width: none; max-height: none; width: 100%; height: 100%; overflow-y: auto; overscroll-behavior: contain; color: var(--tinta); }
+.folha::backdrop { background: rgba(20, 23, 18, .42); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); opacity: 0; transition: opacity .45s var(--macio); }
+.folha.aberta::backdrop { opacity: 1; }
+.folha__papel { position: relative; width: min(720px, calc(100% - 32px)); margin: 6vh auto; background: var(--papel); border-radius: var(--raio); padding: clamp(28px, 5vw, 56px); opacity: 0; filter: blur(14px); transform: translateY(40px); transition: opacity .5s var(--macio), filter .6s var(--macio), transform .7s var(--macio); }
+.folha.aberta .folha__papel { opacity: 1; filter: none; transform: none; }
+.folha h2 { margin: 18px 0 22px; font-size: clamp(28px, 3.4vw, 42px); font-weight: 500; letter-spacing: -.035em; line-height: 1.08; padding-right: 40px; }
+.folha p:not(.etiqueta) { color: var(--tinta-2); font-size: 18px; margin-bottom: 1em; max-width: 60ch; }
+.folha .botao { margin-top: 12px; }
+.folha__fechar { position: absolute; top: 18px; right: 18px; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--gelo); transition: background .3s, transform .3s var(--macio); }
+.folha__fechar svg { width: 20px; height: 20px; }
+@media (hover: hover) { .folha__fechar:hover { background: var(--gelo-2); transform: rotate(90deg); } }
+html.folha-aberta, html.folha-aberta body { overflow: hidden; }
+
+@media (max-width: 900px) {
+  .conteudo__topo { grid-template-columns: 1fr; }
+  .conteudo__lista { grid-template-columns: 1fr; max-width: 560px; }
+}
+@media (max-width: 620px) {
+  .folha { display: flex; flex-direction: column; justify-content: flex-end; }
+  .folha:not([open]) { display: none; }
+  .folha__papel { width: 100%; margin: 12vh 0 0; border-radius: var(--raio) var(--raio) 0 0; transform: translateY(100%); filter: none; opacity: 1; padding-bottom: calc(32px + env(safe-area-inset-bottom)); }
+}

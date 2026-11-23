@@ -1,0 +1,30 @@
+.abordagens__grade { margin-top: clamp(28px, 3vw, 44px); display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 6fr) minmax(0, 3fr); gap: clamp(24px, 4vw, 64px); align-items: stretch; }
+.abordagens__ficha { align-self: start; aspect-ratio: 1; background: var(--gelo); border-radius: var(--raio); padding: 22px; display: flex; flex-direction: column; justify-content: space-between; }
+.abordagens__ficha-topo { display: flex; justify-content: space-between; font-size: 14px; color: var(--tinta-2); }
+.abordagens__ficha-topo span:last-child { color: var(--acento); font-weight: 600; }
+.abordagens__ficha-nome { font-size: clamp(20px, 1.9vw, 26px); font-weight: 500; letter-spacing: -.025em; line-height: 1.12; }
+.abordagens__fala { display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
+.abordagens__bloco { position: relative; }
+.abordagens__bloco::before { content: '“'; position: absolute; right: 100%; margin-right: .08em; top: -.08em; font-size: clamp(28px, 3.25vw, 46px); font-weight: 500; line-height: 1.14; color: var(--acento); }
+.frase-grande--fala { font-size: clamp(26px, 2.8vw, 40px); }
+.abordagens__rodape { display: flex; justify-content: space-between; gap: 16px; font-size: 14px; color: var(--tinta-2); border-top: 1px solid var(--linha); padding-top: 16px; }
+.abordagens__rodape span:last-child { font-variant-numeric: tabular-nums; }
+.troca-sai { opacity: 0 !important; filter: blur(10px) !important; transition: opacity .35s var(--vai-volta), filter .35s var(--vai-volta) !important; }
+.troca-entra { transition: opacity .55s var(--macio), filter .55s var(--macio); }
+.abordagens__lado { display: flex; flex-direction: column; gap: 16px; align-items: flex-end; }
+.abordagens__foto { position: relative; width: 100%; aspect-ratio: 7 / 10; border-radius: var(--raio); overflow: hidden; background: var(--gelo); }
+.abordagens__foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; filter: blur(16px); transform: scale(1.04); transition: opacity .7s var(--vai-volta), filter .7s var(--vai-volta), transform 1.2s var(--macio); }
+.abordagens__foto img.is-ativa { opacity: 1; filter: none; transform: none; }
+.abordagens__lado .setas { display: flex; }
+
+@media (max-width: 960px) {
+  .abordagens__grade { grid-template-columns: 1fr 1fr; }
+  .abordagens__fala { grid-column: 1 / -1; grid-row: 1; padding-left: .5em; }
+  .abordagens__ficha { aspect-ratio: auto; min-height: 180px; }
+}
+@media (max-width: 620px) {
+  .abordagens__grade { grid-template-columns: 1fr; }
+  .abordagens__lado { flex-direction: column-reverse; }
+  .abordagens__foto { aspect-ratio: 4 / 3; }
+  .abordagens__lado .setas { display: flex; }
+}

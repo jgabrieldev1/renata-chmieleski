@@ -1,0 +1,34 @@
+/* Botão em pílula: a seta sai pela direita e outra entra pela esquerda. */
+.botao {
+  --fundo: var(--papel); --cor: var(--tinta); --bola: var(--acento); --bola-cor: #fff;
+  position: relative; display: inline-flex; align-items: center; gap: 14px;
+  height: 54px; padding: 0 6px 0 24px; border-radius: 999px;
+  background: var(--fundo); color: var(--cor); font-weight: 500; font-size: 16px; white-space: nowrap;
+  isolation: isolate; overflow: hidden;
+  transition: color .45s var(--macio), transform .2s var(--macio);
+}
+.botao::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit;
+  background: var(--enche, var(--acento)); transform: scaleX(0); transform-origin: right;
+  transition: transform .55s var(--macio);
+}
+.botao__seta {
+  position: relative; width: 42px; height: 42px; border-radius: 50%; background: var(--bola); color: var(--bola-cor);
+  overflow: hidden; flex: none; transition: background .45s var(--macio);
+}
+.botao__seta svg { position: absolute; inset: 0; margin: auto; width: 18px; height: 18px; transition: transform .5s var(--macio); }
+.botao__seta svg + svg { transform: translateX(-180%); }
+.botao:active { transform: scale(.97); }
+.botao--curto { height: 46px; padding-left: 20px; gap: 12px; font-size: 15px; }
+.botao--curto .botao__seta { width: 34px; height: 34px; }
+.botao--curto .botao__seta svg { width: 16px; height: 16px; }
+.botao--branco { --fundo: #fff; --cor: var(--tinta); }
+.botao--acento { --fundo: var(--acento); --cor: #fff; --bola: #fff; --bola-cor: var(--acento); --enche: var(--acento-forte); }
+
+@media (hover: hover) {
+  .botao:hover::before { transform: scaleX(1); transform-origin: left; }
+  .botao--branco:hover { color: #fff; }
+  .botao--branco:hover .botao__seta { background: #fff; color: var(--acento); }
+  .botao:hover .botao__seta svg:first-child { transform: translateX(180%); }
+  .botao:hover .botao__seta svg + svg { transform: none; }
+}
